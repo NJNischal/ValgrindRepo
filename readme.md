@@ -5,10 +5,7 @@
 
 ## Overview
 
-Simple starter C++ project with:
-
-- cmake
-- googletest
+A program used to find bugs using Valgrind and fixing those errors
 
 ## Standard install via command-line
 ```
@@ -18,15 +15,17 @@ mkdir build
 cd build
 cmake ..
 make
-Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## Building for code coverage (for assignments beginning in Week 4)
-```
-sudo apt-get install lcov
-cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
-make
-make code_coverage
-```
-This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
+## Running Valgrind
+
+valgrind --leak-check=full ./app/shell-app
+
+# install Kcachegrind
+
+sudo apt-get install kcachegrind
+
+# using the Memory profiler
+
+valgrind --tool=callgrind ./app/shell-app
